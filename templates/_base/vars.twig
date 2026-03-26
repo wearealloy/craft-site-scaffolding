@@ -1,0 +1,21 @@
+{# -- Global variables that all templates inherit from -- #}
+{# -- This allows for defining site-wide Twig variables as needed -- #}
+{#
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│                                                                             │
+│                                                                             │
+│                                  htmlPage                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+#}
+
+{% apply spaceless %}
+    {% set fullPath = craft.app.request.getFullPath() %}
+    {% set router = { siteUrl: alias("@siteUrl"), path: fullPath, url: url(fullPath) } %}
+    {% set baseUrl = url() %}
+    {% header "Link: <#{baseUrl}>; rel=dns-prefetch;,<#{baseUrl}>; rel=preconnect; crossorigin;" %}
+    
+    {% block rootHtml %}
+
+    {% endblock %}
+{% endapply %}

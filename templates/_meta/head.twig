@@ -1,0 +1,19 @@
+{# DNS & connection hints #}
+<link rel="dns-prefetch" href="{{ baseUrl }}" />
+<link rel="preconnect" href="{{ baseUrl }}" crossorigin />
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{# CSRF #}
+<meta name="csrf-token-name" content="{{ craft.app.config.general.csrfTokenName }}" />
+<meta name="csrf-token" content="{{ craft.app.request.csrfToken() }}" />
+
+{# Favicons 
+{{ include("_meta/favicon") }} #}
+
+{# Fonts (optimized) 
+{{ include("_meta/fonts") }} #}
+
+{# Vite entrypoint #}
+{{ craft.vite.script("src/entrypoint.ts", false) }}
