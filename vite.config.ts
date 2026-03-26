@@ -1,7 +1,6 @@
 import tailwindcss from "@tailwindcss/vite"
 import path from "path"
 import { defineConfig } from "vite"
-import VitePluginRestart from "vite-plugin-restart"
 
 const PORT = 5173
 const ORIGIN = `${process.env.DDEV_PRIMARY_URL}:${PORT}`
@@ -30,9 +29,6 @@ export default defineConfig(({ command }) => ({
     },
   },
   plugins: [
-    tailwindcss(),
-    VitePluginRestart({
-      reload: ["templates/*/**.twig"]
-    })
+    tailwindcss()
   ],
 }))
