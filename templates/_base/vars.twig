@@ -11,10 +11,10 @@
 
 {% apply spaceless %}
     {% set fullPath = craft.app.request.getFullPath() %}
-    {% set router = { siteUrl: alias("@siteUrl"), path: fullPath, url: url(fullPath) } %}
+    {% set router = { siteUrl: alias("@web"), path: fullPath, url: url(fullPath) } %}
     {% set baseUrl = url() %}
     {% header "Link: <#{baseUrl}>; rel=dns-prefetch;,<#{baseUrl}>; rel=preconnect; crossorigin;" %}
-    
+
     {% block rootHtml %}
 
     {% endblock %}
